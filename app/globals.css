@@ -1,26 +1,34 @@
-@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --foreground-rgb: 23, 23, 23;
+  --background-start-rgb: 253, 252, 248; /* Soft off-white #FDFCF8 */
+  --background-end-rgb: 250, 250, 249;   /* Stone-50-ish */
+  
+  --primary-green: #276135;
+  --primary-green-rgb: 39, 97, 53;
+  --bg-color: #FDFCF8;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
+  color: rgb(var(--foreground-rgb));
+  background: var(--bg-color);
   font-family: Arial, Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+@layer components {
+  .btn-primary {
+    @apply bg-[#276135] text-white px-6 py-3 rounded-full font-medium hover:bg-opacity-90 transition-opacity active:scale-95;
+  }
+  
+  .btn-secondary {
+    @apply bg-white border border-gray-200 text-gray-900 px-6 py-3 rounded-full font-medium hover:bg-gray-50 transition-colors active:scale-95;
+  }
+
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 active:scale-[0.98];
+  }
 }

@@ -2,7 +2,7 @@ import Link from 'next/link';
 import { places } from '@/data/places';
 import { notFound } from 'next/navigation';
 
-export async function _generateStaticParams() {
+export async function generateStaticParams() {
     return places.map((place) => ({
         slug: place.slug,
     }));

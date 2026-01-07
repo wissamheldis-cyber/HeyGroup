@@ -3,7 +3,7 @@ import { places } from '@/data/places';
 import PlaceCard from '@/components/PlaceCard';
 import { notFound } from 'next/navigation';
 
-export async function _generateStaticParams() {
+export async function generateStaticParams() {
     const categories = Array.from(new Set(places.map(p => p.category.toLowerCase())));
     return categories.map((category) => ({
         category,

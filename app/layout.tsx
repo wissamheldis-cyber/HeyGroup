@@ -16,7 +16,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="fr" className="antialiased">
-      <body className="flex flex-col min-h-screen bg-[#FDFCF8] text-[#171717]">
+      <body className="flex flex-col min-h-screen bg-[var(--color-bg-cream)] text-gray-900">
         <Header />
         <main className="flex-grow flex flex-col">
           {children}

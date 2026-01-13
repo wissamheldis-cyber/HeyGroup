@@ -1,18 +1,22 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { Place } from '@/data/places';
 
 export default function PlaceCard({ place }: { place: Place }) {
     return (
         <Link href={`/p/${place.slug}`} className="block group h-full">
             <div className="bg-white rounded-3xl overflow-hidden shadow-sm border border-gray-100 card-hover h-full flex flex-col relative">
-                {/* Generative Placeholder Image */}
-                <div
-                    className="h-56 w-full bg-cover bg-center relative"
-                    style={{ backgroundColor: place.image || '#e5e7eb' }}
-                >
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-60"></div>
+                {/* Image Section */}
+                <div className="h-56 w-full relative bg-gray-100">
+                    <Image
+                        src={place.image || "/image/ref commerce.png"}
+                        alt={place.name}
+                        fill
+                        className="object-cover"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-80"></div>
                     {place.badge && (
-                        <span className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-[var(--color-primary-green)] text-xs font-bold px-4 py-1.5 rounded-full shadow-sm uppercase tracking-wide">
+                        <span className="absolute top-4 right-4 bg-white/95 backdrop-blur-md text-[var(--color-primary-green)] text-xs font-bold px-4 py-1.5 rounded-full shadow-sm uppercase tracking-wide z-10">
                             {place.badge}
                         </span>
                     )}
